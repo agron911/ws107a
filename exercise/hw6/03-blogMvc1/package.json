@@ -4,15 +4,19 @@
   "description": "簡易網誌系統(經典 server 導向做法)",
   "main": "app.js",
   "dependencies": {
-    "koa": "^2.6.1",
     "koa-body": "^4.0.4",
+    "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.0",
-    "koa-router": "^7.4.0",
-    "mongodb": "^3.1.10",
-    "mysql": "^2.16.0"
+    "mongoose": "^5.3.12"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015-node6": "^0.4.0",
+    "babel-preset-stage-3": "^6.24.1",
     "chai": "^4.2.0",
+    "koa": "^2.0.0-alpha.8",
+    "koa-router": "^8.0.0-alpha.1",
     "mocha": "^5.2.0",
     "should": "^13.2.3",
     "supertest": "^3.3.0"

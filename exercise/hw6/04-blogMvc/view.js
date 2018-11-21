@@ -7,8 +7,7 @@ V.layout = function (title, content) {
     <title>${title}</title>
     <style>
       body {
-        padding: 80px;
-        font: 16px Helvetica, Arial;
+       
       }
   
       h1 {
