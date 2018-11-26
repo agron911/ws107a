@@ -1,0 +1,44 @@
+<% include header%>
+    <div class="ui form segment" style="width:400px;margin:40px auto">
+        <form method="post">
+            <div class="two fields">
+                <div class="field required">
+                    <label>用戶名</label>
+                    <input placeholder="用戶名" type="text" name="name">
+                </div>
+                <div class="field required">
+                    <label>性別</label>
+                    <div class="ui selection dropdown">
+                        <div class="default text">選擇性別</div>
+                        <i class="dropdown icon"></i>
+                        <input type="hidden" name="gender">
+                        <div class="menu">
+                            <div class="item" data-value="男">男</div>
+                            <div class="item" data-value="女">女</div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+            <div class="two fields">
+                <div class="field required">
+                    <label>密碼</label>
+                    <input placeholder="密碼" type="password" name="password">
+                </div>
+                <div class="field required">
+                    <label>重複密碼</label>
+                    <input placeholder="重複密碼" type="password" name="re_password">
+                </div>
+            </div>
+            <div class="field required">
+                <label>郵箱</label>
+                <input placeholder="郵箱" type="email" name="email">
+            </div>
+            <input type="submit" class="ui button fluid" value="註冊">
+        </form>
+    </div>
+
+<script type="text/javascript">
+    $('.ui.dropdown').dropdown();
+</script>
+
+<% include footer%>

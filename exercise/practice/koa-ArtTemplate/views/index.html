@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>
+        </title>
+        
+    </head>
+    <body>
+            <h2 class="title">這是一個art-template</h2>
+        <hr/>
+               <h3>綁定數據</h3>
+        <br/>
+              <h2> <%=list.name%></h2>
+       <hr/>
+       <br/>
+            <form action="/doAdd" method="post">
+                用戶名:<input type="text" name="username" />
+                <br/>
+                <br/>
+                密    碼:<input type="password" name="password"/>
+                <br/>
+                <button typr="submit">提交</button>
+            </form>
+        <br/>
+        <hr/>
+          <%=list.h%>
+        <hr/>
+            <%-list.h%>
+        <br/>
+        <hr/>
+        <br/>
+            <%=list.nums%>
+            <%if(list.nums > 10){%>
+                大於10
+            <%}  else{%>
+                
+                小於10
+            <%}%>
+        <br/>
+        <hr/>
+        <br/>
+        <ul>
+            <%for(let i=0;i<list.data.length;i++){%>
+            <li>
+                <%=list.data[i] %>
+                
+            </li>
+            <%}  %>
+        </ul>
+        <hr/>
+        <br/>
+            <%- include('./public/footer.html')%>
+       
+    </body>
+</html>

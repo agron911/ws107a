@@ -20,14 +20,17 @@
   },
   "homepage": "https://github.com/cccnqu/ws107a#readme",
   "dependencies": {
+    "art-template": "^4.13.2",
     "ccclodash": "^0.4.0",
     "ccclodash2": "0.0.1",
     "ejs": "^2.6.1",
     "fs-promise": "^2.0.3",
     "kdd": "^1.1.0",
     "koa": "^2.5.2",
+    "koa-art-template": "^1.1.1",
     "koa-basic-auth": "^3.0.0",
     "koa-body": "^4.0.4",
+    "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
     "koa-csrf": "^3.0.6",
     "koa-json": "^2.0.2",
@@ -37,6 +40,7 @@
     "koa-static": "^5.0.0",
     "koa-views": "^6.1.4",
     "lodash": "^4.17.11",
+    "session": "^0.1.0",
     "should": "^3.3.2",
     "supertest": "^3.3.0"
   }

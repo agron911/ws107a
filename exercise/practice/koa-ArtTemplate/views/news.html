@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>
+        </title>
+        
+    </head>
+    <body>
+        <h2 class="title">這是一個news頁面</h2>
+        
+        <hr/>
+        <h3>綁定數據</h3>
+ <br/>
+       <h2>{{l.name}} </h2>
+       
+<hr/>
+<br/>
+     {{@l.h}}
+ <br/>
+ <hr/>
+   <h2>條件</h2>
+ <hr/>
+  {{if l.nums>10}}<strong>{{l.nums}}大於10</strong> {{else}} <strong>小於10</strong> {{/if}}
+ <br/>
+ <hr/>
+ <br/>
+<ul>
+    {{each l.data}}
+    <li>
+        {{$index}}---{{$value}}
+    </li>
+    {{/each}}
+</ul>
+ <br/>
+ <hr/>
+ <br/>
+ <ul>
+    {{ include 'public/footer.html'}}
+ </ul>
+ <hr/>
+ <br/>
+
+    </body>
+</html>

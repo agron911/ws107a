@@ -6,23 +6,16 @@ V.layout = function (title, content) {
   <head>
     <title>${title}</title>
     <style>
-      body {
-       
-      }
-  
       h1 {
         font-size: 2em;
       }
-  
       h2 {
         font-size: 1.2em;
       }
-  
       #posts {
         margin: 0;
         padding: 0;
       }
-  
       #posts li {
         margin: 40px 0;
         padding: 0;
@@ -65,8 +58,29 @@ V.layout = function (title, content) {
   </html>
   `
 }
-
-V.list = function (posts) {
+V.listUsers = function (users) {
+  let list = []
+  for (let user of Object.keys(users)) {
+    list.push(`<li><a href="/${user}/posts">${user} 的留言板</a></li>`)
+  }
+  return V.layout(`<h1>所有留言板列表</h1>`, `
+    <ol>${list.join('\n')}</ol>
+  `)
+}
+V.showLogin = function () {
+  return V.layout('登入', `
+  <h2>登入</h2>
+  <form action="/login" method="post">
+    <p><input type="text" placeholder="User" name="user"></p>
+    <p><input type="password" placeholder="Password" name="password"></textarea></p>
+    <p><input type="submit" value="登入"/><input type="reset" value="清除"/></p>
+  </form>
+  `)
+}
+V.userLayout = function (user, title, content) {
+  return V.layout(title, `<h1>${user} 的留言板</h1>\n` + content)
+}
+V.list = function (user,posts) {
   let list = []
   let count =0
   for (let post of posts) {
@@ -74,7 +88,7 @@ V.list = function (posts) {
     list.push(`
     <li>
       <h2>${post.title}</h2>
-      <p><a href="/post/${post.id}">讀取貼文</a></p>
+      <p><a href="/${user}/post/${post.id}">讀取貼文</a></p>
     </li>
     `)
     count ++
@@ -82,7 +96,7 @@ V.list = function (posts) {
   let content = `
   <h1>貼文列表</h1>
   <p>您總共有 <strong>${count}</strong> 則貼文!</p>
-  <p><a href="/post/new">創建新貼文</a></p>
+  <p><a href="/${user}/post/new">創建新貼文</a></p>
   <ul id="posts">
     ${list.join('\n')}
   </ul>
@@ -90,11 +104,11 @@ V.list = function (posts) {
   return V.layout('貼文列表', content)
 }
 
-V.new = function () {
-  return V.layout('新增貼文', `
+V.new = function (user) {
+  return V.userlayout(user,'新增貼文', `
   <h1>新增貼文</h1>
   <p>創建一則新貼文</p>
-  <form action="/post" method="post">
+  <form action="/${user}/post" method="post">
     <p><input type="text" placeholder="Title" name="title"></p>
     <p><textarea placeholder="Contents" name="body"></textarea></p>
     <p><input type="submit" value="Create"></p>
