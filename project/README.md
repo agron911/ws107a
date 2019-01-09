@@ -1,7 +1,7 @@
 # My first blog
 
-#Blog
-##start server
+
+start server
 ```
     $ npm install 
     $ mongodb
