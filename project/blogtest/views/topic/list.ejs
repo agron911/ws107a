@@ -23,7 +23,7 @@
                     <% topics.forEach(function (topic, index) { %>
                     <div class="item">
                         <a class="ui image" href="/topics/user/<%= topic.user.name %>">
-                            <img src="<%= gravatar.url(topic.user.email) %>">
+                            <img src="/images/<%= topic.user.name %>.jpg">
                         </a>
                         <div class="content">
                             <a class="header" href="/topics/<%= topic._id %>"><%= topic.title %></a>

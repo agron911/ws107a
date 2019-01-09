@@ -1,5 +1,5 @@
 const Koa = require('koa');
-const bodyparser = require('koa-bodyparser');
+// const bodyparser = require('koa-bodyparser');
 const session = require('koa-generic-session');
 const MongoStore = require('koa-generic-session-mongo');
 const flash = require('koa-flash');
@@ -12,12 +12,19 @@ const statics = require('koa-static');
 const moment = require('moment');
 const gravatar = require('gravatar');
 const router = require('./routes');
+//改照片
+const koaBody = require('koa-body');
+const fs = require('fs');
+const os = require('os');
+
 const app = new Koa();
+app.use(koaBody({ multipart: true }));
 
 app.keys = config.keys;
 
 app.use(logger());
-app.use(bodyparser());
+
+// app.use(bodyparser());
 
 app.use(statics(config.staticConf));
 
@@ -59,3 +66,13 @@ if (module.parent) {
         console.log('Server listening on: ', config.port);
     });
 }
+
+
+//改照片
+
+app.use(async function(ctx, next) {
+    await next();
+    if (ctx.body || !ctx.idempotent) return;
+    ctx.redirect('/404.html');
+  });
+  
